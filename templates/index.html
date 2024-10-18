@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">
+            <img src="{{ url_for('static', filename='images/jelly-beans.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
+        Jelly Bean Bonanza
+        </a>
+        <form class="form-inline my-2 my-lg-0" action="{{ url_for('add') }}" method="POST">
+            <input class="form-control mr-sm-2" placeholder="Flavor Town" name="flavor">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add Flavor</button>
+        </form>
+    </nav>
+    
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Flavor</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set classes = ['table-primary', 'table-secondary', 'table-success', 'table-danger', 'table-warning', 'table-info'] %}
+            {% for flavor in jelly_beans %}
+            <tr class="{{ classes[loop.index % classes|length] }}">
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{flavor}}</td>
+                <td>
+                    <form action="{{ url_for('edit', index=loop.index0) }}" style="display: inline;">
+                        <button type="submit" class="btn btn-outline-secondary">Edit</button>
+                    </form>
+                    <form action="{{ url_for('delete', index=loop.index0) }}" style="display: inline;">
+                        <button type="submit" class="btn btn-outline-secondary">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+{% endblock %}
