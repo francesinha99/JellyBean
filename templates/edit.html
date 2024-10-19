@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="" method="POST">
-        <input type="text" name="flavor" value="{{ flavor }}" required>
-        <button type="submit">Update</button>
-    </form>
-    <a href="{{ url_for('index') }}">Cancel</a>
+    <div class="container mt-4">
+        <h2>Edit the Bean</h2>
+        <form action="" method="POST">
+            <div class="mb-3">
+                <label for="flavor" class="form-label">New Flavor</label>
+                <input class="form-control" type="text" id="flavor" name="flavor" value="{{ flavor }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
 {% endblock %}

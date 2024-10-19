@@ -3,16 +3,15 @@
 {% block content %}
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand">
-            <img src="{{ url_for('static', filename='images/jelly-beans.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="{{ url_for('static', filename='images/jelly-beans.png') }}" width="30" height="30" class="d-inline-block align-top">
         Jelly Bean Bonanza
         </a>
         <form class="form-inline my-2 my-lg-0" action="{{ url_for('add') }}" method="POST">
             <input class="form-control mr-sm-2" placeholder="Flavor Town" name="flavor">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add Flavor</button>
+            <button class="btn btn-success my-2 my-sm-0" type="submit">Add Flavor</button>
         </form>
     </nav>
     
-
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
             <tr>
@@ -37,5 +36,5 @@
                 </td>
             </tr>
             {% endfor %}
-        </tbody>
+        </tbody>      
 {% endblock %}
