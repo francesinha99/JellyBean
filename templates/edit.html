@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
-
+{% block title %} Edit {% endblock %}
 {% block content %}
     <div class="container mt-4">
-        <h2>Edit the Bean</h2>
         <form action="" method="POST">
             <div class="mb-3">
-                <label for="flavor" class="form-label">New Flavor</label>
+                <label for="flavor" class="form-label">Edit the Bean</label>
                 <input class="form-control" type="text" id="flavor" name="flavor" value="{{ flavor }}" required>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
